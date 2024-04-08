@@ -95,7 +95,7 @@ def compute_copula_correlation_matrix(stock_data_dict):
     copula_correlation_matrix = stock_data.corr(method='kendall')
     return copula_correlation_matrix
 
-def compute_stock_volatility(stock_data, window=20):
+def compute_stock_volatility(stock_data, window=5):
     stock_data = stock_data.copy()
     stock_data['volatility'] = stock_data['close'].rolling(window).std()
     return stock_data
