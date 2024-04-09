@@ -15,16 +15,18 @@ def get_stock_data(stock_symbol, start_date, end_date, interval='1d'):
     data = data.rename(columns={'Date': 'date', 'Open': 'open', 'High': 'high', 'Low': 'low', 'Close': 'close', 'Adj Close': 'adj_close', 'Volume': 'volume'})
     data = data[['date', 'open', 'high', 'low', 'close', 'adj_close', 'volume']]
     data['date'] = data['date'].dt.strftime('%Y-%m-%d')
+    data['date'] = pd.to_datetime(data['date'])
     return data
 
-def get_hourly_stock_data(stock_symbol, start_date, end_date):
-    data = pdr.get_data_yahoo(stock_symbol, start=start_date, end=end_date, interval='30m')
+def get_hourly_stock_data(stock_symbol, start_date, end_date, interval = '30m'):
+    data = pdr.get_data_yahoo(stock_symbol, start=start_date, end=end_date, interval=interval)
     # preprocess
     data = data.dropna()
     data = data.reset_index()
     data = data.rename(columns={'Datetime': 'date', 'Open': 'open', 'High': 'high', 'Low': 'low', 'Close': 'close', 'Adj Close': 'adj_close', 'Volume': 'volume'})
     data = data[['date', 'open', 'high', 'low', 'close', 'adj_close', 'volume']]
     data['date'] = data['date'].dt.strftime('%Y-%m-%d %H:%M:%S')
+    data['date'] = pd.to_datetime(data['date'])
     return data
 
 def plot_stock_data(stock_data, column='close', name='Stock'):
