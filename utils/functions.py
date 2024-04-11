@@ -3,6 +3,7 @@ from pandas_datareader import data as pdr
 from datetime import datetime
 import yfinance as yf
 import matplotlib.pyplot as plt
+import numpy as np
 
 yf.pdr_override()
 
@@ -50,12 +51,14 @@ def plot_multiple_stock_data(stock_data_dict, column='close'):
     plt.title(f'{column.capitalize()} Stock Price Over Time')
     plt.legend()
     # only 1/200 dates will be shown
-    plt.xticks(stock_data['date'][::10], rotation=45)
+    plt.xticks(stock_data['date'][::20], rotation=45)
     plt.show()
 
 def compute_stock_returns(stock_data):
     stock_data = stock_data.copy()
+    # % change
     stock_data['return'] = stock_data['close'].pct_change()
+    stock_data = stock_data.dropna()
     return stock_data
 
 def plot_stock_returns_distribution(stock_data, name = 'Stock'):
@@ -97,9 +100,9 @@ def compute_copula_correlation_matrix(stock_data_dict):
     copula_correlation_matrix = stock_data.corr(method='kendall')
     return copula_correlation_matrix
 
-def compute_stock_volatility(stock_data, window=5):
+def compute_stock_volatility(stock_data, window=20):
     stock_data = stock_data.copy()
-    stock_data['volatility'] = stock_data['close'].rolling(window).std()
+    stock_data['volatility'] = stock_data['close'].pct_change().rolling(window).std()
     return stock_data
 
 def plot_stock_histogram(stock_data, column, name='Stock'):
