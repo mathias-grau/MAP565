@@ -71,7 +71,7 @@ The `copules.ipynb` notebook implements copula models to analyze dependencies be
 
 ![Modèle de Copules - Visualisation des résultats](figures/copules.png)
 
-## Extreme Value Analysis
+## Analyse des Valeurs Extrêmes
 
 The extreme value analysis is conducted in the relevant notebooks to assess the behavior of financial time series in the tails of the distribution. This is crucial for understanding the likelihood of extreme events, such as market crashes or unexpected surges.
 
