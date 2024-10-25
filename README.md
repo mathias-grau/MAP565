@@ -6,17 +6,10 @@ Ce projet porte sur l'analyse financière à l'aide de techniques statistiques a
 
 1. [Introduction](#introduction)
 2. [Analyse par des processus de GARCH](#analyse-par-des-processus-de-garch)
-    - [Modèles ARCH et GARCH](#modeles-arch-et-garch)
-    - [Test de McLeod-Li](#test-de-mcleod-li)
-    - [Ajustement du Modèle GARCH(P,Q)](#ajustement-du-modele-garchpq)
-    - [Prévision de la volatilité](#prevision-de-la-volatilite)
-    - [Évaluation du Modèle](#evaluation-du-modele)
 3. [Processus Gaussiens et interpolation par krigeage](#processus-gaussiens-et-interpolation-par-krigeage)
-    - [Processus Gaussien](#processus-gaussien)
-    - [Krigeage par processus gaussien](#krigeage-par-processus-gaussien)
-    - [Estimation par maximum de vraisemblance](#estimation-par-maximum-de-vraisemblance)
-    - [Application à nos données](#application-a-nos-donnees)
-4. [Bibliographie](#bibliographie)
+4. [Modélisation par Copules](#modelisation-par-copules)
+5. [Analyse des Valeurs Extrêmes](#analyse-des-valeurs-extremes)
+6. [Bibliographie](#bibliographie)
 
 ## Introduction
 
@@ -47,26 +40,6 @@ Nous avons exploré deux méthodes de prévision de la volatilité :
 Le test de Jarque-Bera a été appliqué pour vérifier la normalité des erreurs du modèle, et les résultats ont indiqué la nécessité d'explorer des distributions plus adaptées, comme la distribution de Student.
 
 ![Modèle GARCH(1,1) - Visualisation des résultats](figures/GARCH.png)
-## Copula Modeling
-
-The `copules.ipynb` notebook implements copula models to analyze dependencies between financial assets. Copulas allow us to capture complex relationships between variables that cannot be fully explained by correlation alone. In this notebook, we explore various types of copulas (such as Gaussian and t-Copulas) and their applications in risk management and portfolio optimization.
-
-### Key Steps:
-- Load financial data and preprocess it.
-- Fit different copula models to the data.
-- Analyze the results and visualize the dependency structures.
-
-## Extreme Value Analysis
-
-The extreme value analysis is conducted in the relevant notebooks to assess the behavior of financial time series in the tails of the distribution. This is crucial for understanding the likelihood of extreme events, such as market crashes or unexpected surges.
-
-### Key Steps:
-- Apply extreme value theory (EVT) to financial data.
-- Estimate the parameters of the extreme value distribution.
-- Conduct simulations to predict the probability of extreme losses or gains.
-
-By studying extreme values, we can better manage risk and prepare for potential market volatility.
-
 ## Processus Gaussiens et interpolation par krigeage
 
 ### Processus Gaussien
@@ -85,6 +58,32 @@ Nous avons maximisé la fonction de vraisemblance pour calibrer notre modèle et
 
 Nous avons appliqué le krigeage pour prédire les prix des actions à partir des valeurs horaires, en générant un intervalle de confiance de 95%.
 
+![Modèle de Krigeage par Processus Gaussien - Visualisation des résultats](figures/gaussianprocesses.png)
+
+## Modélisation par Copules
+
+The `copules.ipynb` notebook implements copula models to analyze dependencies between financial assets. Copulas allow us to capture complex relationships between variables that cannot be fully explained by correlation alone. In this notebook, we explore various types of copulas (such as Gaussian and t-Copulas) and their applications in risk management and portfolio optimization.
+
+### Key Steps:
+- Load financial data and preprocess it.
+- Fit different copula models to the data.
+- Analyze the results and visualize the dependency structures.
+
+![Modèle de Copules - Visualisation des résultats](figures/copules.png)
+
+## Extreme Value Analysis
+
+The extreme value analysis is conducted in the relevant notebooks to assess the behavior of financial time series in the tails of the distribution. This is crucial for understanding the likelihood of extreme events, such as market crashes or unexpected surges.
+
+### Key Steps:
+- Apply extreme value theory (EVT) to financial data.
+- Estimate the parameters of the extreme value distribution.
+- Conduct simulations to predict the probability of extreme losses or gains.
+
+By studying extreme values, we can better manage risk and prepare for potential market volatility.
+
+![Théorie des Valeurs Extrèmes - Visualisation des résultats](figures/extremevalues1.png)
+![Théorie des Valeurs Extrèmes - Visualisation des résultats](figures/extremevalues2.png)
 
 ## Structure of the repository 
 
