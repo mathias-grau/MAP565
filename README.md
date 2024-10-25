@@ -46,6 +46,8 @@ Nous avons exploré deux méthodes de prévision de la volatilité :
 
 Le test de Jarque-Bera a été appliqué pour vérifier la normalité des erreurs du modèle, et les résultats ont indiqué la nécessité d'explorer des distributions plus adaptées, comme la distribution de Student.
 
+![Modèle GARCH(1,1) - Visualisation des résultats](figures/GARCH.png)
+
 ## Processus Gaussiens et interpolation par krigeage
 
 ### Processus Gaussien
@@ -78,6 +80,8 @@ The structure is :
 ├── get_financial_data.ipynb
 ├── kriging.ipynb
 ├── series_chronologiques.ipynb
+├── figures
+│   ├── ...
 ├── sources
 │   ├── ...
 └── utils
