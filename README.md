@@ -47,6 +47,25 @@ Nous avons exploré deux méthodes de prévision de la volatilité :
 Le test de Jarque-Bera a été appliqué pour vérifier la normalité des erreurs du modèle, et les résultats ont indiqué la nécessité d'explorer des distributions plus adaptées, comme la distribution de Student.
 
 ![Modèle GARCH(1,1) - Visualisation des résultats](figures/GARCH.png)
+## Copula Modeling
+
+The `copules.ipynb` notebook implements copula models to analyze dependencies between financial assets. Copulas allow us to capture complex relationships between variables that cannot be fully explained by correlation alone. In this notebook, we explore various types of copulas (such as Gaussian and t-Copulas) and their applications in risk management and portfolio optimization.
+
+### Key Steps:
+- Load financial data and preprocess it.
+- Fit different copula models to the data.
+- Analyze the results and visualize the dependency structures.
+
+## Extreme Value Analysis
+
+The extreme value analysis is conducted in the relevant notebooks to assess the behavior of financial time series in the tails of the distribution. This is crucial for understanding the likelihood of extreme events, such as market crashes or unexpected surges.
+
+### Key Steps:
+- Apply extreme value theory (EVT) to financial data.
+- Estimate the parameters of the extreme value distribution.
+- Conduct simulations to predict the probability of extreme losses or gains.
+
+By studying extreme values, we can better manage risk and prepare for potential market volatility.
 
 ## Processus Gaussiens et interpolation par krigeage
 
