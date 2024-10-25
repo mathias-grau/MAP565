@@ -70,7 +70,7 @@ The `copulas.ipynb` notebook implements copula models to analyze dependencies be
 - Fit different copula models to the data.
 - Analyze the results and visualize the dependency structures.
 
-![Copulas Model - Results Visualization](figures/copulas.png)
+![Copulas Model - Results Visualization](figures/copules.png)
 
 ## Extreme Value Analysis
 
