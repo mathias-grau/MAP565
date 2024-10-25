@@ -59,7 +59,7 @@ We maximized the likelihood function to calibrate our model and capture the spat
 
 We applied kriging to predict stock prices from hourly values, generating a 95% confidence interval.
 
-![Gaussian Process Kriging Model - Results Visualization](figures/gaussianprocesses.png)
+![Gaussian Process Kriging Model - Results Visualization](figures/kriging.png)
 
 ## Modeling with Copulas
 
