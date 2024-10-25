@@ -1,77 +1,78 @@
-# Analyse Financière et Modélisation
+# Financial Analysis and Modeling
 
-Ce projet porte sur l'analyse financière à l'aide de techniques statistiques avancées, y compris la modélisation de la volatilité, l'interpolation par krigeage et l'utilisation de processus gaussiens.
+This project focuses on financial analysis using advanced statistical techniques, including volatility modeling, kriging interpolation, and the use of Gaussian processes.
 
-## Table des matières
+## Table of Contents
 
 1. [Introduction](#introduction)
-2. [Analyse par des processus de GARCH](#analyse-par-des-processus-de-garch)
-3. [Processus Gaussiens et interpolation par krigeage](#processus-gaussiens-et-interpolation-par-krigeage)
-4. [Modélisation par Copules](#modélisation-par-copules)
-5. [Analyse des Valeurs Extrêmes](#analyse-des-valeurs-extrêmes)
-6. [Bibliographie](#bibliographie)
+2. [Analysis using GARCH Processes](#analysis-using-garch-processes)
+3. [Gaussian Processes and Kriging Interpolation](#gaussian-processes-and-kriging-interpolation)
+4. [Modeling with Copulas](#modeling-with-copulas)
+5. [Extreme Value Analysis](#extreme-value-analysis)
+6. [Bibliography](#bibliography)
 
 ## Introduction
 
-Ce projet explore des modèles statistiques pour l'analyse des rendements d'actifs financiers, en se concentrant sur la gestion des risques et la prévision de la volatilité. Nous utilisons des modèles GARCH pour modéliser la volatilité conditionnelle et des processus gaussiens pour l'interpolation de données.
+This project explores statistical models for analyzing the returns of financial assets, focusing on risk management and volatility forecasting. We use GARCH models to model conditional volatility and Gaussian processes for data interpolation.
 
-## Analyse par des processus de GARCH
+## Analysis using GARCH Processes
 
-### Modèles ARCH et GARCH
+### ARCH and GARCH Models
 
-Nous avons introduit les modèles ARCH (Autoregressive Conditional Heteroskedasticity) et GARCH (Generalized Autoregressive Conditional Heteroskedasticity) pour modéliser les rendements des actifs en tenant compte de la volatilité. Le modèle GARCH(1,1) a été ajusté, avec des résultats significatifs indiquant une dépendance de la volatilité sur les rendements passés.
+We introduced ARCH (Autoregressive Conditional Heteroskedasticity) and GARCH (Generalized Autoregressive Conditional Heteroskedasticity) models to model asset returns while accounting for volatility. The GARCH(1,1) model was fitted, with significant results indicating volatility dependence on past returns.
 
-### Test de McLeod-Li
+### McLeod-Li Test
 
-Nous avons effectué le test de McLeod-Li pour détecter la présence d'effets ARCH dans les résidus, avec des résultats suggérant des effets significatifs, ce qui nous a conduits à poursuivre notre analyse avec le modèle GARCH.
+We performed the McLeod-Li test to detect the presence of ARCH effects in the residuals, with results suggesting significant effects, leading us to continue our analysis with the GARCH model.
 
-### Ajustement du Modèle GARCH(P,Q)
+### Fitting the GARCH(P,Q) Model
 
-L'ajustement du modèle GARCH a permis d'obtenir des paramètres de prédiction qui capturent la structure de la volatilité. Nous avons observé que le modèle est efficace à court terme mais moins fiable pour des prévisions à long terme.
+Fitting the GARCH model yielded predictive parameters that capture the volatility structure. We observed that the model is effective in the short term but less reliable for long-term forecasts.
 
-### Prévision de la volatilité
+### Volatility Forecasting
 
-Nous avons exploré deux méthodes de prévision de la volatilité :
-1. **Prévision à N Pas en Avance** : Limitée aux prévisions à court terme.
-2. **Prévision en Temps Réel d'un Pas en Avant** : Mettant à jour le modèle quotidiennement pour des prévisions plus fiables.
+We explored two volatility forecasting methods:
+1. **N-Step Ahead Forecasting**: Limited to short-term forecasts.
+2. **One-Step Ahead Real-Time Forecasting**: Updating the model daily for more reliable forecasts.
 
-### Évaluation du Modèle
+### Model Evaluation
 
-Le test de Jarque-Bera a été appliqué pour vérifier la normalité des erreurs du modèle, et les résultats ont indiqué la nécessité d'explorer des distributions plus adaptées, comme la distribution de Student.
+The Jarque-Bera test was applied to check the normality of the model's errors, and results indicated the need to explore more suitable distributions, such as the Student's t-distribution.
 
-![Modèle GARCH(1,1) - Visualisation des résultats](figures/GARCH.png)
-## Processus Gaussiens et interpolation par krigeage
+![GARCH(1,1) Model - Results Visualization](figures/GARCH.png)
 
-### Processus Gaussien
+## Gaussian Processes and Kriging Interpolation
 
-Nous avons défini un vecteur aléatoire gaussien et discuté de l'importance du choix du noyau pour la fonction de covariance. Nous avons utilisé le noyau Matern pour capturer la dépendance spatiale dans les données.
+### Gaussian Process
 
-### Krigeage par processus gaussien
+We defined a Gaussian random vector and discussed the importance of kernel choice for the covariance function. We used the Matern kernel to capture spatial dependence in the data.
 
-Le krigeage a été utilisé pour faire des prédictions à partir de données connues. Nous avons montré que cette méthode est appropriée pour estimer des valeurs intermédiaires.
+### Kriging with Gaussian Processes
 
-### Estimation par maximum de vraisemblance
+Kriging was used to make predictions from known data. We showed that this method is suitable for estimating intermediate values.
 
-Nous avons maximisé la fonction de vraisemblance pour calibrer notre modèle et capturer la structure de dépendance spatiale.
+### Maximum Likelihood Estimation
 
-### Application à nos données
+We maximized the likelihood function to calibrate our model and capture the spatial dependence structure.
 
-Nous avons appliqué le krigeage pour prédire les prix des actions à partir des valeurs horaires, en générant un intervalle de confiance de 95%.
+### Application to Our Data
 
-![Modèle de Krigeage par Processus Gaussien - Visualisation des résultats](figures/gaussianprocesses.png)
+We applied kriging to predict stock prices from hourly values, generating a 95% confidence interval.
 
-## Modélisation par Copules
+![Gaussian Process Kriging Model - Results Visualization](figures/gaussianprocesses.png)
 
-The `copules.ipynb` notebook implements copula models to analyze dependencies between financial assets. Copulas allow us to capture complex relationships between variables that cannot be fully explained by correlation alone. In this notebook, we explore various types of copulas (such as Gaussian and t-Copulas) and their applications in risk management and portfolio optimization.
+## Modeling with Copulas
+
+The `copulas.ipynb` notebook implements copula models to analyze dependencies between financial assets. Copulas allow us to capture complex relationships between variables that cannot be fully explained by correlation alone. In this notebook, we explore various types of copulas (such as Gaussian and t-Copulas) and their applications in risk management and portfolio optimization.
 
 ### Key Steps:
 - Load financial data and preprocess it.
 - Fit different copula models to the data.
 - Analyze the results and visualize the dependency structures.
 
-![Modèle de Copules - Visualisation des résultats](figures/copules.png)
+![Copulas Model - Results Visualization](figures/copulas.png)
 
-## Analyse des Valeurs Extrêmes
+## Extreme Value Analysis
 
 The extreme value analysis is conducted in the relevant notebooks to assess the behavior of financial time series in the tails of the distribution. This is crucial for understanding the likelihood of extreme events, such as market crashes or unexpected surges.
 
@@ -82,39 +83,25 @@ The extreme value analysis is conducted in the relevant notebooks to assess the 
 
 By studying extreme values, we can better manage risk and prepare for potential market volatility.
 
-![Théorie des Valeurs Extrèmes - Visualisation des résultats](figures/extremevalues1.png)
-![Théorie des Valeurs Extrèmes - Visualisation des résultats](figures/extremevalues2.png)
+![Extreme Value Theory - Results Visualization 1](figures/extremevalues1.png)
+![Extreme Value Theory - Results Visualization 2](figures/extremevalues2.png)
 
-## Structure of the repository 
+## Structure of the Repository
 
-The structure is :
+The structure is:
 
 ```bash
 ├── GARCH.ipynb
 ├── LICENSE
 ├── MAP_565_report.pdf
 ├── README.md
-├── copules.ipynb
+├── copulas.ipynb
 ├── get_financial_data.ipynb
 ├── kriging.ipynb
-├── series_chronologiques.ipynb
+├── time_series_analysis.ipynb
 ├── figures
 │   ├── ...
 ├── sources
 │   ├── ...
 └── utils
     └── functions.py
-```
-
-There are these different files : 
-- `report.pdf: Where you can find the final report.
-- `get_financial_data.ipynb`: Contains functions to fetch financial data from online sources.
-- `GARCH.ipynb`: Focuses on modeling financial time series volatility using GARCH models.
-- `copules.ipynb`: Implements copula methods to analyze dependencies between random variables.
-- `kriging.ipynb`: Demonstrates the kriging method for spatial interpolation.
-- `series_chronologiques.ipynb`: Explores time series analysis techniques.
-
-
-## Bibliographie
-
-Une bibliographie complète est incluse à la fin du document pour référencer les travaux et études utilisés dans ce projet.
