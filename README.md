@@ -8,7 +8,7 @@ Ce projet porte sur l'analyse financière à l'aide de techniques statistiques a
 2. [Analyse par des processus de GARCH](#analyse-par-des-processus-de-garch)
 3. [Processus Gaussiens et interpolation par krigeage](#processus-gaussiens-et-interpolation-par-krigeage)
 4. [Modélisation par Copules](#modélisation-par-copules)
-5. [Analyse des Valeurs Extrêmes](#analyse-des-valeurs-extremes)
+5. [Analyse des Valeurs Extrêmes](#analyse-des-valeurs-extrêmes)
 6. [Bibliographie](#bibliographie)
 
 ## Introduction
